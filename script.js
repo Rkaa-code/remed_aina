@@ -113,3 +113,21 @@ function masukkanKeranjang(id) {
 
 // Pertama kali tampil
 renderBuku(bukuData);
+document.querySelectorAll(".genre-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+
+    genreAktif = btn.dataset.genre;
+
+    // Hapus warna aktif dari semua tombol
+    document.querySelectorAll(".genre-btn").forEach((b) => {
+      b.classList.remove("bg-yellow-400", "text-black");
+      b.classList.add("bg-amber-700", "text-white");
+    });
+
+    // Tambahkan warna ke tombol yang dipilih
+    btn.classList.remove("bg-amber-700", "text-white");
+    btn.classList.add("bg-yellow-400", "text-black");
+
+    filterBuku();
+  });
+});
